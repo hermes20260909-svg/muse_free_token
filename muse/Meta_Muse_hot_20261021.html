@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Meta Muse 熱門功能整理｜大家都在用它做什麼？</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fff9f0;
+        --card: #ffffff;
+        --ink: #2b2118;
+        --ink-soft: #5c4f43;
+        --coral: #f9552b;
+        --coral-deep: #d63e18;
+        --coral-soft: #ffe9e0;
+        --teal: #0e9c8f;
+        --teal-deep: #07796e;
+        --teal-soft: #dcf4ef;
+        --amber-soft: #fff3d6;
+        --line: #f0e2d2;
+        --shadow: 0 6px 22px rgba(120, 72, 20, 0.08);
+        --shadow-hover: 0 10px 28px rgba(120, 72, 20, 0.13);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #1d1712;
+          --card: #2a211a;
+          --ink: #f7ecdd;
+          --ink-soft: #c9b7a3;
+          --coral: #ff7a52;
+          --coral-deep: #ff9a7d;
+          --coral-soft: #432619;
+          --teal: #2fc4b2;
+          --teal-deep: #5fd8c8;
+          --teal-soft: #173d38;
+          --amber-soft: #3d3013;
+          --line: #40332a;
+          --shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+          --shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.45);
+        }
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.75;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 20px 64px;
+      }
+
+      /* ---------- Hero ---------- */
+      header.hero {
+        padding: 48px 0 8px;
+      }
+      .hero .tag {
+        display: inline-block;
+        background: var(--teal-soft);
+        color: var(--teal-deep);
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        padding: 4px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        font-family: "Noto Serif TC", "Noto Sans TC", serif;
+        font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+        font-weight: 900;
+        line-height: 1.3;
+        margin: 0 0 16px;
+      }
+      .hero h1 .hl { color: var(--coral); }
+      .hero p.lede {
+        font-size: 1.08rem;
+        color: var(--ink-soft);
+        margin: 0 0 24px;
+      }
+      .notice {
+        background: var(--amber-soft);
+        border: 1.5px dashed var(--coral);
+        border-radius: 16px;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+      }
+      .notice strong { color: var(--coral-deep); }
+
+      /* ---------- Section heads ---------- */
+      section { margin-top: 56px; }
+      .sec-head { margin-bottom: 22px; }
+      .sec-num {
+        font-family: "Noto Serif TC", serif;
+        font-weight: 900;
+        font-size: 0.95rem;
+        color: var(--teal-deep);
+        letter-spacing: 0.12em;
+      }
+      .sec-head h2 {
+        font-family: "Noto Serif TC", "Noto Sans TC", serif;
+        font-size: clamp(1.45rem, 5vw, 1.9rem);
+        font-weight: 900;
+        line-height: 1.35;
+        margin: 4px 0 8px;
+      }
+      .sec-head p {
+        color: var(--ink-soft);
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      /* ---------- Ranked cards ---------- */
+      .rank-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .rank-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px 22px 20px;
+        box-shadow: var(--shadow);
+        display: flex;
+        gap: 18px;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+      .rank-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+      .rank-num {
+        flex: 0 0 auto;
+        font-family: "Noto Serif TC", serif;
+        font-weight: 900;
+        font-size: 2.4rem;
+        line-height: 1;
+        width: 58px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        background: var(--coral-soft);
+        color: var(--coral);
+      }
+      .rank-card:nth-child(even) .rank-num {
+        background: var(--teal-soft);
+        color: var(--teal-deep);
+      }
+      .rank-card h3 {
+        margin: 2px 0 6px;
+        font-size: 1.18rem;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+      .rank-card p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.98rem;
+      }
+      .cases {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .case-chip {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px 12px;
+        font-size: 0.86rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .case-chip b { color: var(--coral-deep); font-weight: 900; }
+      .stat-callout {
+        margin-top: 14px;
+        background: var(--coral-soft);
+        border-radius: 12px;
+        padding: 10px 14px;
+        font-size: 0.95rem;
+      }
+      .stat-callout b { color: var(--coral-deep); }
+
+      /* ---------- Grid cards (sections 2 & 3) ---------- */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      @media (max-width: 600px) {
+        .grid { grid-template-columns: 1fr; }
+        .rank-card { padding: 18px; gap: 14px; }
+        .rank-num { width: 48px; height: 48px; font-size: 1.9rem; border-radius: 14px; }
+      }
+      .tile {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+      .tile:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+      .tile .icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+      .tile .icon svg { width: 24px; height: 24px; }
+      .icon-coral { background: var(--coral-soft); color: var(--coral); }
+      .icon-teal { background: var(--teal-soft); color: var(--teal-deep); }
+      .tile h3 {
+        margin: 0 0 6px;
+        font-size: 1.1rem;
+        font-weight: 900;
+        line-height: 1.45;
+      }
+      .tile p {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 0.95rem;
+      }
+      .tile .quote {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        color: var(--teal-deep);
+        font-weight: 700;
+      }
+
+      /* ---------- Limitations ---------- */
+      .limit-box {
+        background: var(--card);
+        border: 1.5px dashed var(--coral);
+        border-radius: 20px;
+        padding: 24px 26px;
+        box-shadow: var(--shadow);
+      }
+      .limit-box ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .limit-box li {
+        padding: 10px 0 10px 30px;
+        position: relative;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.98rem;
+      }
+      .limit-box li:last-child { border-bottom: none; }
+      .limit-box li::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 19px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--coral);
+      }
+      .limit-box li b { font-weight: 900; }
+      .limit-box li span { color: var(--ink-soft); }
+
+      /* ---------- Footer / sources ---------- */
+      footer {
+        margin-top: 60px;
+        border-top: 1px solid var(--line);
+        padding-top: 28px;
+      }
+      footer h2 {
+        font-size: 1.05rem;
+        font-weight: 900;
+        margin: 0 0 14px;
+      }
+      .source-list {
+        list-style: none;
+        margin: 0 0 24px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .source-list a {
+        display: block;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px 16px;
+        color: var(--teal-deep);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        word-break: break-all;
+        transition: border-color 0.2s ease;
+      }
+      .source-list a:hover { border-color: var(--teal); }
+      .source-list a small {
+        display: block;
+        color: var(--ink-soft);
+        font-weight: 400;
+        font-size: 0.82rem;
+        word-break: break-all;
+      }
+      footer .fineprint {
+        color: var(--ink-soft);
+        font-size: 0.85rem;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <span class="tag">Meta Muse 使用心得整理</span>
+        <h1>大家都在用 Muse 做什麼？<br /><span class="hl">最熱門功能排行榜</span></h1>
+        <p class="lede">
+          申請完 Muse.ai 之後，第一件事要試什麼？這頁整理了網友最常拿來用、最常討論、也最受好評的用法——從幫你比價、殺價，到睡覺時自動幫你查資料、安排行事曆、做每週摘要。
+        </p>
+        <div class="notice">
+          <strong>先說清楚：</strong>Meta 沒有公布官方的使用量排行榜。以下熱門程度，是綜合 Reddit／X 上的使用者分享、Tom's Guide 整理的 10 個案例、以及彙整 1,000+ 個實作案例的評測站得出的排序，不是官方統計。
+        </div>
+      </header>
+
+      <!-- ============ Section 1 ============ -->
+      <section id="top-uses">
+        <div class="sec-head">
+          <div class="sec-num">PART 1</div>
+          <h2>最常被實際拿來用的功能</h2>
+          <p>依熱門程度排序。第一名毫不意外——跟錢有關的最有感。</p>
+        </div>
+
+        <div class="rank-list">
+          <article class="rank-card">
+            <div class="rank-num">1</div>
+            <div>
+              <h3>省錢跑腿：帳單議價、退費、理賠、比價</h3>
+              <p>公認最強、最常被曬成果的一類。把帳單交給它，它會逐項檢查、打去跟客服談，幫你把錢要回來。</p>
+              <div class="cases">
+                <span class="case-chip">AT&amp;T 帳單談到 <b>$40／月</b>＋3 個月免費</span>
+                <span class="case-chip">Delta 班機延誤拿到 <b>$250</b> 補償</span>
+                <span class="case-chip">醫療帳單逐項審查省下 <b>$4,000+</b></span>
+                <span class="case-chip">車險同保障省 <b>$3,500／年</b></span>
+              </div>
+              <div class="stat-callout">有評測彙整發現：約 500 個實作案例裡，<b>有 20% 都和錢有關</b>。</div>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">2</div>
+            <div>
+              <h3>代打客服電話</h3>
+              <p>不用再自己聽客服音樂等半小時。它能代打電話處理房屋保險客服，甚至取消網路方案時還順便談到一筆補償費——這是 Reddit 上最常被轉述的「哇」案例。</p>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">3</div>
+            <div>
+              <h3>預訂與購票</h3>
+              <p>透過合作的串接服務訂餐廳、訂機票、買演唱會門票。因為內建結帳流程，速度常被拿來跟其他 AI 助理比較。</p>
+              <div class="cases">
+                <span class="case-chip">OpenTable 訂餐廳</span>
+                <span class="case-chip">訂機票</span>
+                <span class="case-chip">Ticketmaster 門票</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">4</div>
+            <div>
+              <h3>Email 整理與行程</h3>
+              <p>清掉幾千封促銷信、把信箱整理乾淨、安排行事曆、做每週摘要。有評論直言：這是大家目前想出最有說服力的用法。</p>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">5</div>
+            <div>
+              <h3>購物比價代購</h3>
+              <p>一句話交辦，像是「我要新的內衣，找最便宜的同尺寸」，它就自己比價、裝進購物車、結帳。也有人用它自動訂雜貨、搶難買的球鞋。</p>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">6</div>
+            <div>
+              <h3>填表與自動求職</h3>
+              <p>找符合條件的職缺、針對每一份職缺修改履歷，然後在你睡覺的時候自動投遞出去。</p>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">7</div>
+            <div>
+              <h3>做網站／文件／小工具</h3>
+              <p>串接 Gmail 和 Squarespace 蓋部落格與商店頁、把 400 份 Google Docs 合併成一份 PDF，還能做小遊戲和動畫。</p>
+            </div>
+          </article>
+
+          <article class="rank-card">
+            <div class="rank-num">8</div>
+            <div>
+              <h3>小商家後台幫手</h3>
+              <p>Muse for Small Business 推出後，這類討論暴增：審查 Email 自動化流程、分析上萬則顧客評論、看廣告成效、抓異常支出、管理庫存與現金流。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ Section 2 ============ -->
+      <section id="how-people-use">
+        <div class="sec-head">
+          <div class="sec-num">PART 2</div>
+          <h2>最常被討論的應用方式</h2>
+          <p>功能之外，大家更愛聊的是這種「交辦」的用法——這也是它和一般聊天機器人最大的不同。</p>
+        </div>
+
+        <div class="grid">
+          <article class="tile">
+            <div class="icon icon-coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>一句話交辦，關掉 App 它還繼續做</h3>
+            <p>給它一個目標，它自己訂計畫、在背景執行。過程有變化、或需要你批准時，才會回來找你。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <h3>Connector 串接，串得越多越好用</h3>
+            <p>Gmail、日曆、Notion、Shopify、Slack、Stripe 都能接上。進階玩家還能自己寫 Custom Connector——有人示範 1 分鐘內做出一個 Linear 連接器。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+            </div>
+            <h3>在 WhatsApp 裡直接用</h3>
+            <p>不用另外開 App，在 WhatsApp 就能交辦事情；手機、Mac、網頁之間也能接續使用，被評為目前最容易上手的大廠個人 Agent 之一。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>長期目標＋主動提醒</h3>
+            <p>Goals 幫你追蹤長期目標的進度，Ideas 會主動丟出可以立刻執行的點子，Feed 給你個人化短訊；還能設定排程監控，例如天氣要下雨就主動通知你。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ Section 3 ============ -->
+      <section id="favorites">
+        <div class="sec-head">
+          <div class="sec-num">PART 3</div>
+          <h2>網友最喜愛、最受好評的點</h2>
+          <p>討論區裡最常被按讚、被轉發的，是這四件事。</p>
+        </div>
+
+        <div class="grid">
+          <article class="tile">
+            <div class="icon icon-coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>真的省到錢</h3>
+            <p>議價、退費類的成果最容易被按讚轉發，因為金額具體、看得到、可以驗證，不是空口說好用。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>設計與跟進感最好</h3>
+            <p>交辦之後它會持續跟進、回報進度，整個體驗很順。</p>
+            <p class="quote">Lenny's Newsletter 評測者稱它是「我測過設計最好的個人 Agent」。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <h3>免費額度慷慨</h3>
+            <p>Reddit 早期討論最常提到的就是：免費就能玩很多。有人做了遊戲、網站、50 首歌，也只用了大約 11% 的免費週額度。</p>
+          </article>
+
+          <article class="tile">
+            <div class="icon icon-coral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h3>結帳有保障</h3>
+            <p>結帳用 Stripe Link 的一次性卡號，真卡號不曝光，還有購物保障——被列為主要賣點之一。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ Section 4 ============ -->
+      <section id="limits">
+        <div class="sec-head">
+          <div class="sec-num">PART 4</div>
+          <h2>老實說：這些限制也要知道</h2>
+          <p>討論量同樣很高的負面話題，先知道就不會期望落空。</p>
+        </div>
+
+        <div class="limit-box">
+          <ul>
+            <li><b>驗證關卡會卡住</b> <span>——遇到 Captcha 圖形驗證或簡訊驗證碼，它沒辦法自己過關，還是要你出面。</span></li>
+            <li><b>有些網站會封鎖 Agent</b> <span>——像 Amazon 等網站會擋自動化操作，交辦的事可能做到一半就停住。</span></li>
+            <li><b>偶爾給錯資訊</b> <span>——有時會提供過時、甚至編造的內容，重要資訊還是要自己再確認一次。</span></li>
+            <li><b>Token 用量不透明</b> <span>——額度怎麼扣的看不太清楚，常常是收到通知才發現快用完。</span></li>
+            <li><b>隱私要自己想清楚</b> <span>——要不要信任 Meta 碰你的 Email 和付款資訊，是最多人猶豫的一點。</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <h2>參考來源</h2>
+        <ul class="source-list">
+          <li>
+            <a href="https://digbly.com/en/post/i-scoured-reddit-for-muse-ai-use-cases-10-that-will-actually-save-yo" target="_blank" rel="noopener">
+              Tom's Guide／Digbly 整理的 Reddit 10 大用法
+              <small>digbly.com/en/post/i-scoured-reddit-for-muse-ai-use-cases-10-that-will-actually-save-yo</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://shipwithmuse.live/blog/muse-review" target="_blank" rel="noopener">
+              Meta Muse Review 2026 — 1,000+ 案例彙整評測
+              <small>shipwithmuse.live/blog/muse-review</small>
+            </a>
+          </li>
+          <li>
+            <a href="https://theaiagentindex.com/agents/meta-muse" target="_blank" rel="noopener">
+              The AI Agent Index — Muse 功能與 Connector 總覽
+              <small>theaiagentindex.com/agents/meta-muse</small>
+            </a>
+          </li>
+        </ul>
+        <p class="fineprint">本頁為社群討論與評測彙整，非 Meta 官方資料；功能與額度以 Muse.ai 官方公告為準。</p>
+      </footer>
+    </div>
+  </body>
+</html>
