@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="記錄第一次使用 GPT-6 的探索歷程，從能力認識到程式開發與梯度下降。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我第一次使用 GPT-6">
+<meta property="og:description" content="記錄第一次使用 GPT-6 的探索歷程，從能力認識到程式開發與梯度下降。">
+<meta name="twitter:card" content="summary">
+<title>我第一次使用 GPT-6｜互動式探索日記</title>
+<style>
+:root{--ink:#172b4d;--muted:#61718b;--blue:#315bd6;--blue2:#dce7ff;--cream:#fbf7ef;--paper:#fffdf9;--orange:#f29b4b;--teal:#48a9a6;--line:#e4e8ef;--shadow:0 16px 45px rgba(31,53,91,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75}a{color:inherit}button,input{font:inherit}.topbar{position:sticky;top:0;z-index:10;background:rgba(251,247,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(228,232,239,.9)}.topinner{max-width:1120px;margin:auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:.03em}.brand span{color:var(--blue)}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav a{text-decoration:none;color:var(--muted);font-size:.88rem;padding:6px 10px;border-radius:999px}.nav a:hover,.nav a.active{background:var(--blue2);color:var(--blue)}main{max-width:1120px;margin:auto;padding:32px 22px 80px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;min-height:500px;padding:42px 0 62px}.eyebrow{color:var(--blue);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}.hero h1{font-size:clamp(2.4rem,5vw,4.7rem);line-height:1.15;letter-spacing:-.04em;margin:14px 0 20px}.hero h1 em{font-style:normal;color:var(--blue)}.lead{font-size:1.15rem;color:var(--muted);max-width:520px}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.pill{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 13px;font-size:.86rem;color:var(--muted)}.hero-art{background:linear-gradient(145deg,#e8efff,#fff1dc);border-radius:34px;min-height:360px;display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(49,91,214,.17);border-radius:50%;width:290px;height:290px}.hero-art:after{width:390px;height:390px}.hero-art svg{width:min(90%,440px);position:relative;z-index:1}.stamp{position:absolute;right:20px;top:20px;background:var(--paper);border-radius:14px;padding:10px 13px;font-size:.8rem;box-shadow:var(--shadow);transform:rotate(5deg)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:30px 0 18px}.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.25;margin:0}.section-head p{color:var(--muted);max-width:430px;margin:0}.chapter{padding:48px 0;border-top:1px solid var(--line)}.chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}.chapter-grid.reverse .chapter-copy{order:2}.chapter-grid.reverse .art-card{order:1}.num{font-size:.8rem;letter-spacing:.15em;color:var(--blue);font-weight:800}.chapter h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.3;margin:8px 0 14px}.chapter p{color:#43536d}.art-card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:24px;box-shadow:var(--shadow)}.art-card{min-height:300px;display:grid;place-items:center;overflow:hidden}.art-card svg{width:100%;max-width:450px;height:auto}.caption{font-size:.83rem;color:var(--muted);margin-top:10px}.callout{border-left:4px solid var(--orange);padding:12px 16px;background:#fff4e8;border-radius:0 12px 12px 0;color:#65452a;margin:18px 0}.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{font-size:.8rem;background:#edf2ff;color:#3152aa;padding:5px 10px;border-radius:8px}.interactive{margin-top:28px;background:#f0f4ff;border:1px solid #dbe5ff;border-radius:24px;padding:22px}.interactive h3{margin:0 0 5px;font-size:1.2rem}.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}.btn{border:1px solid #c9d6f7;background:white;color:var(--blue);padding:9px 14px;border-radius:12px;cursor:pointer;font-weight:700}.btn:hover,.btn[aria-pressed="true"]{background:var(--blue);color:white}.range{width:min(100%,300px);accent-color:var(--blue)}.chart{width:100%;height:auto;display:block;background:#fff;border-radius:16px;border:1px solid #e0e6f4}.status{font-size:.92rem;color:#405273;background:white;border-radius:12px;padding:10px 13px;margin-top:12px}.two-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.mini{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.mini strong{display:block;margin-bottom:6px}.mini p{margin:0;font-size:.93rem}.reflection{background:var(--ink);color:#fff;border-radius:30px;padding:clamp(24px,5vw,50px);margin-top:36px}.reflection .eyebrow{color:#a9c1ff}.reflection h2{font-size:clamp(1.8rem,3vw,2.6rem);margin:8px 0 18px}.reflection p{color:#e1e8f5;max-width:850px}.footer{padding:35px 0 10px;color:var(--muted);font-size:.86rem;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.progress{height:3px;background:#e5eaf4}.progress span{display:block;height:100%;width:0;background:var(--blue);transition:width .1s}.backtop{position:fixed;right:18px;bottom:18px;border:0;border-radius:50%;width:44px;height:44px;background:var(--blue);color:white;box-shadow:var(--shadow);cursor:pointer;font-size:1.2rem;z-index:9}.small-note{font-size:.82rem;color:var(--muted)}.curve-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.86rem;margin:10px 0}.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}.no-js{padding:12px;background:#fff4e8}
+@media(max-width:760px){.topinner{align-items:flex-start;flex-direction:column;gap:5px}.nav{gap:2px}.nav a{font-size:.78rem;padding:5px 8px}.hero{grid-template-columns:1fr;padding-top:25px;gap:20px;min-height:0}.hero-art{min-height:280px}.chapter-grid{grid-template-columns:1fr;gap:18px}.chapter-grid.reverse .chapter-copy,.chapter-grid.reverse .art-card{order:initial}.art-card{min-height:240px}.section-head{align-items:flex-start;flex-direction:column}.two-cards{grid-template-columns:1fr}.chapter{padding:34px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.conversation-link { margin: 1.2rem 0 1.5rem; }
+.conversation-link a { display: inline-flex; align-items: center; gap: .45rem; color: var(--accent, #b36a3c); font-weight: 650; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.conversation-link a:hover { opacity: .78; }
+
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+<header class="topbar"><div class="topinner">
+<div class="brand">探索日記 <span>/ GPT-6</span></div>
+<nav class="nav" aria-label="章節導覽">
+<a href="#start">開始</a><a href="#chapter1">能力</a><a href="#chapter2">程式</a><a href="#chapter3">梯度下降</a><a href="#ending">心得</a>
+</nav></div></header>
+<main id="start">
+<section class="hero">
+<div>
+<div class="eyebrow">A small journey of discovery</div>
+<h1>我第一次使用<br><em>GPT-6</em></h1>
+<p class="lead">從一個問題開始，看看 AI 如何把文字、程式與抽象概念，變成可以理解、可以操作的體驗。</p>
+
+<p class="small-note">這是一份個人探索紀錄。頁面中的插圖與互動示意是為本日記重新設計，並非原始對話畫面的重現。</p>
+</div>
+<div class="hero-art" role="img" aria-label="由問題泡泡、圖表和小星星組成的探索插畫">
+<div class="stamp">FIRST LOOK · 01</div>
+<svg viewBox="0 0 440 340" xmlns="http://www.w3.org/2000/svg">
+<circle cx="220" cy="170" r="106" fill="#fffdf9" stroke="#c5d5ff" stroke-width="2"/>
+<path d="M110 116 Q90 84 124 66 Q155 52 173 77" fill="none" stroke="#315bd6" stroke-width="3" stroke-linecap="round"/>
+<path d="M321 227 Q350 251 326 276" fill="none" stroke="#f29b4b" stroke-width="3" stroke-linecap="round"/>
+<rect x="133" y="105" width="174" height="130" rx="20" fill="#315bd6"/>
+<path d="M169 145 h82 M169 164 h102 M169 183 h63" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".85"/>
+<circle cx="278" cy="205" r="17" fill="#f29b4b"/><path d="M271 205 l5 5 10 -12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="111" cy="220" r="28" fill="#ffdfb9"/><text x="111" y="230" font-size="30" text-anchor="middle" fill="#9a5d21">?</text>
+<circle cx="329" cy="104" r="24" fill="#d8f0eb"/><path d="M319 104 l7 7 14 -17" fill="none" stroke="#277d78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M215 44 l5 13 14 1 -11 9 4 13 -12 -8 -12 8 4 -13 -11 -9 14 -1z" fill="#f29b4b"/>
+<circle cx="80" cy="151" r="5" fill="#48a9a6"/><circle cx="355" cy="177" r="6" fill="#315bd6"/><circle cx="282" cy="292" r="4" fill="#f29b4b"/>
+</svg></div>
+</section>
+
+<div class="section-head"><div><div class="eyebrow"></div><h2></h2></div></div>
+
+<section class="chapter" id="chapter1"><div class="chapter-grid">
+<div class="chapter-copy"><div class="num">01 / 先從一個問題開始</div><h2>GPT-6 能做什麼？</h2>
+<p>探索從了解模型的能力開始。對話不只是問答，也可以逐步發展成圖解、動畫構想與互動教材。當問題更具體，產出的內容也更容易被檢視與調整。</p>
+<p>這種互動方式讓學習不必一次得到所有答案，而是可以沿著問題往下追問。</p>
+<div class="callout">關鍵觀察：AI 能協助表達與整理，但回答本身仍需要判斷與驗證。</div><div class="tagrow"><span class="tag">提問</span><span class="tag">視覺化</span><span class="tag">持續追問</span></div></div>
+<div class="art-card"><svg viewBox="0 0 420 260" role="img" aria-label="提問逐步形成圖解"><rect x="22" y="20" width="376" height="220" rx="22" fill="#f1f5ff"/><rect x="45" y="45" width="135" height="56" rx="15" fill="#fff" stroke="#b8caff" stroke-width="2"/><text x="112" y="79" text-anchor="middle" font-size="17" fill="#315bd6" font-weight="700">提出問題</text><path d="M185 73 H221" stroke="#315bd6" stroke-width="3" stroke-linecap="round"/><path d="M214 65 l9 8 -9 8" fill="none" stroke="#315bd6" stroke-width="3"/><rect x="229" y="45" width="145" height="56" rx="15" fill="#315bd6"/><text x="301" y="79" text-anchor="middle" font-size="17" fill="#fff" font-weight="700">整理概念</text><path d="M301 107 V132" stroke="#315bd6" stroke-width="3"/><path d="M293 125 l8 9 8 -9" fill="none" stroke="#315bd6" stroke-width="3"/><rect x="117" y="141" width="187" height="63" rx="15" fill="#ffead4" stroke="#f3c08d" stroke-width="2"/><text x="210" y="168" text-anchor="middle" font-size="16" fill="#80501f" font-weight="700">圖解・動畫・互動</text><text x="210" y="189" text-anchor="middle" font-size="12" fill="#80501f">讓想法更容易理解</text></svg><div class="caption">從提問到表達：一個可反覆調整的流程。</div></div>
+</div></section>
+
+<section class="chapter" id="chapter2"><div class="chapter-grid reverse">
+<div class="chapter-copy"><div class="num">02 / 程式開發的新搭檔</div><h2>AI 可以協助寫程式，但不能代替驗收</h2>
+<p>傳統開發通常需要自己查資料、設計結構、撰寫程式並逐步除錯。加入 AI 後，可以請它協助產生範例、解釋錯誤、提出測試方式，讓部分工作更快開始。</p>
+<p>不過，程式「看起來合理」不代表真的能運作。需求是否完整、邊界情況是否處理、資安與效能是否合格，仍要由開發者檢查與測試。</p>
+<div class="two-cards"><div class="mini"><strong>傳統流程</strong><p>查找資料 → 設計 → 撰寫 → 測試 → 修正</p></div><div class="mini"><strong>AI 輔助流程</strong><p>描述需求 → 產生草稿 → 人工審查 → 測試 → 修正</p></div></div>
+<div class="caption">AI 可以加速起步，但責任並不因此消失。</div></div>
+<div class="art-card"><svg viewBox="0 0 420 260" role="img" aria-label="人與 AI 合作檢查程式"><rect x="28" y="28" width="364" height="204" rx="20" fill="#f7f9ff"/><rect x="53" y="54" width="180" height="150" rx="12" fill="#172b4d"/><circle cx="70" cy="70" r="4" fill="#f29b4b"/><circle cx="83" cy="70" r="4" fill="#48a9a6"/><circle cx="96" cy="70" r="4" fill="#dce7ff"/><path d="M73 98 h90 M73 120 h126 M73 142 h72 M73 164 h108" stroke="#a9c1ff" stroke-width="5" stroke-linecap="round"/><circle cx="296" cy="99" r="37" fill="#dce7ff"/><path d="M279 96 h34 M296 79 v34" stroke="#315bd6" stroke-width="5" stroke-linecap="round"/><rect x="255" y="146" width="83" height="44" rx="12" fill="#d8f0eb"/><path d="M275 168 l9 9 20 -22" fill="none" stroke="#277d78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M233 125 Q246 125 255 135" fill="none" stroke="#f29b4b" stroke-width="3" stroke-dasharray="5 5"/></svg><div class="caption">把 AI 當成協作工具，而不是免驗收的自動答案機。</div></div>
+</div></section>
+
+<section class="chapter" id="chapter3"><div class="chapter-grid">
+<div class="chapter-copy"><div class="num">03 / 把抽象概念變成圖像</div><h2>梯度下降：沿著坡度找低點</h2>
+<p>可以把模型訓練想成在起伏地形上尋找低谷。每一步根據目前的坡度決定往哪裡走；步伐太小，前進得慢；步伐太大，則可能越過低點，在兩側來回震盪。下方互動圖會用圓點軌跡呈現這個差異。</p>
+<p>這是概念示意。真實模型通常是在高維參數空間中更新參數，不是只有一顆球在二維山坡上滾動。</p>
+<div class="tagrow"><span class="tag">參數</span><span class="tag">損失</span><span class="tag">更新步伐</span></div></div>
+<div class="art-card"><svg viewBox="0 0 420 260" role="img" aria-label="山谷曲線與沿坡下降的球"><path d="M28 58 C92 65 107 204 210 205 S322 63 392 54" fill="none" stroke="#315bd6" stroke-width="5" stroke-linecap="round"/><path d="M28 58 C92 65 107 204 210 205 S322 63 392 54 L392 225 L28 225Z" fill="#dce7ff" opacity=".6"/><path d="M42 225 H385" stroke="#b9c7df" stroke-width="2"/><circle cx="83" cy="88" r="12" fill="#f29b4b" stroke="#fff" stroke-width="3"/><circle cx="139" cy="171" r="10" fill="#f29b4b" stroke="#fff" stroke-width="3"/><circle cx="211" cy="205" r="13" fill="#48a9a6" stroke="#fff" stroke-width="3"/><path d="M92 103 L123 145 M115 135 l10 13 3 -16" fill="none" stroke="#f29b4b" stroke-width="3" stroke-linecap="round"/><text x="28" y="246" fill="#61718b" font-size="12">較高損失</text><text x="300" y="246" fill="#61718b" font-size="12">尋找低點</text></svg><div class="caption">示意圖：模型沿著能降低損失的方向更新參數。</div></div>
+</div>
+<div class="interactive"><h3>動手試試：調整更新步伐</h3><p>拖曳滑桿，再按「重新走一次」。橘色圓點會逐步移動，綠色小點留下每次更新的位置；步伐太大時，會明顯越過低點、在兩側來回震盪。</p>
+<div class="controls"><label for="stepSize">步伐大小</label><input class="range" id="stepSize" type="range" min="0.08" max="1.25" value="0.35" step="0.05"><strong id="stepLabel">0.35</strong><button class="btn" id="runDescent">重新走一次</button></div>
+<svg id="descentChart" class="chart" viewBox="0 0 640 270" role="img" aria-label="梯度下降互動圖。橘色圓點代表參數位置。"><line x1="35" y1="225" x2="610" y2="225" stroke="#d7deeb" stroke-width="2"/><line x1="35" y1="28" x2="35" y2="225" stroke="#d7deeb" stroke-width="2"/><path id="descentPath" d="" fill="none" stroke="#315bd6" stroke-width="4" stroke-linecap="round"/><g id="descentDots"></g><circle id="descentBall" cx="0" cy="0" r="8" fill="#f29b4b" stroke="#fff" stroke-width="3"/><text x="42" y="22" font-size="12" fill="#61718b">損失（示意）</text><text x="520" y="252" font-size="12" fill="#61718b">參數位置 →</text></svg>
+<div class="status" id="descentStatus" aria-live="polite">步伐適中時，通常能逐步靠近低點。這是簡化的一維示意。</div></div>
+</section>
+
+
+
+
+
+<section class="chapter" id="chapter6"><div class="chapter-grid reverse">
+<div class="chapter-copy"><div class="num">04 / 從理解走向實作</div><h2>把知識做成可以操作的體驗</h2>
+<p>這次探索從模型能力一路延伸到程式開發與神經網路訓練。最明顯的收穫，不只是得到解釋，而是發現可以把問題拆小，再透過圖像、動畫和互動設計，讓抽象概念更容易被看見。</p>
+<p>同時也要記得：視覺化是輔助理解的工具，不等於完整的技術模型；AI 的文字與程式產出，也需要檢查、比較和測試。</p>
+<div class="callout">下一步不是只問「AI 能不能做」，而是把需求說清楚、做出原型，再用實際結果驗證。</div></div>
+<div class="art-card"><svg viewBox="0 0 420 260" role="img" aria-label="從問題經過實驗到驗證"><path d="M56 130 H358" stroke="#c5d4f2" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 8"/><g><circle cx="74" cy="130" r="37" fill="#dce7ff"/><text x="74" y="139" text-anchor="middle" font-size="28" fill="#315bd6">?</text><text x="74" y="188" text-anchor="middle" font-size="14" fill="#61718b">提問</text></g><g><circle cx="210" cy="130" r="37" fill="#ffead4"/><path d="M192 136 l12 -14 11 9 15 -20" fill="none" stroke="#b66b24" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="210" y="188" text-anchor="middle" font-size="14" fill="#61718b">嘗試</text></g><g><circle cx="346" cy="130" r="37" fill="#d8f0eb"/><path d="M328 130 l12 12 24 -27" fill="none" stroke="#277d78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="346" y="188" text-anchor="middle" font-size="14" fill="#61718b">驗證</text></g></svg><div class="caption">把探索變成循環：提問、嘗試、檢查，再繼續改進。</div></div>
+</div></section>
+
+<section class="reflection" id="ending"><div class="eyebrow">Personal reflection</div><h2>我的第一次使用 GPT-6：初步心得</h2>
+<p class="conversation-link"><a href="https://chatgpt.com/share/6ae2ba77-69e8-83ee-8bb8-43bdb5db9e47" target="_blank" rel="noopener noreferrer">閱讀「我第一次使用 GPT-6」完整對話 ↗</a></p>
+<p>這次探索從了解 GPT-6 的能力開始，逐步延伸到程式開發、梯度下降等技術概念。</p>
+<p>過程中，GPT-6 不只提供文字解釋，也協助把抽象的知識轉換成圖解、動畫構想和互動式教材的設計方向。透過持續追問，可以從一個概念逐步延伸到相關問題。</p>
+<p>這次探索也提醒我，AI 生成的內容不一定完全正確。圖片可能有表達上的誤差，解釋也可能過度簡化，因此仍需要檢查、比較與驗證。</p>
+<p>對我而言，這是一個探索 AI 輔助學習方式的起點。接下來，還可以進一步嘗試將這些構想實際製作成能夠操作的網頁。</p></section>
+<footer class="footer"><span>《我第一次使用 GPT-6》</span><span>以探索為起點，以驗證為習慣。</span></footer>
+</main>
+<button class="backtop" id="backtop" aria-label="回到頁面頂端" title="回到頂端">↑</button>
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const progress=$('#progress');
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-d.clientHeight;progress.style.width=(max>0?d.scrollTop/max*100:0)+'%';}
+window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+$('#backtop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const navLinks=$$('.nav a');const sections=navLinks.map(a=>$(a.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver' in window){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-25% 0px -60% 0px'});sections.forEach(s=>obs.observe(s));}
+const range=$('#stepSize'), stepLabel=$('#stepLabel'), ball=$('#descentBall'), dots=$('#descentDots'), path=$('#descentPath'), status=$('#descentStatus');
+let descentTimer=null, descentRunId=0;
+function curveY(x){return 48+0.0021*Math.pow(x-320,2);}
+function drawDescent(){let d='';for(let x=45;x<=595;x+=5)d+=(x===45?'M':'L')+x.toFixed(1)+' '+curveY(x).toFixed(1)+' ';path.setAttribute('d',d);}
+function runDescent(){
+  const runId=++descentRunId;
+  if(descentTimer!==null){clearInterval(descentTimer);descentTimer=null;}
+  const step=parseFloat(range.value);stepLabel.textContent=step.toFixed(2);
+  dots.innerHTML='';
+  let x=110, count=0, positions=[];
+  const maxSteps=12;
+  function place(xNow, i){
+    const yNow=curveY(xNow);
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx',xNow);c.setAttribute('cy',yNow);c.setAttribute('r',i===0?5:4);
+    c.setAttribute('fill','#48a9a6');c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','1.5');
+    dots.appendChild(c);positions.push([xNow,yNow]);
+    ball.setAttribute('cx',xNow);ball.setAttribute('cy',yNow);
+  }
+  place(x,0);
+  if(step<0.25) status.textContent='步伐偏小：每次只移動一小段，靠近低點的速度較慢。按鈕會重新播放整段更新過程。';
+  else if(step<0.75) status.textContent='步伐適中：圓點逐步靠近低點，更新幅度逐漸縮小。';
+  else status.textContent='步伐偏大：注意橘色圓點會越過低點，接著在左右兩側來回跳動；這是簡化的一維示意。';
+  descentTimer=setInterval(()=>{
+    if(runId!==descentRunId){clearInterval(descentTimer);descentTimer=null;return;}
+    count++;
+    // A deliberately simplified gradient update. Large steps cross the minimum
+    // and visibly alternate sides; positions are bounded to keep the demo in view.
+    let next=320+(x-320)*(1-1.9*step);
+    if(next<65) next=65;
+    if(next>575) next=575;
+    x=next;place(x,count);
+    if(count>=maxSteps){clearInterval(descentTimer);descentTimer=null;}
+  }, step>=0.9?420:step>=0.55?330:260);
+}
+range.addEventListener('input',()=>{stepLabel.textContent=parseFloat(range.value).toFixed(2);});
+$('#runDescent').addEventListener('click',runDescent);drawDescent();runDescent();
+const optInfo={momentum:'<strong>Momentum｜累積方向</strong><br>像推動有慣性的球，保留部分先前的更新方向，讓前進更連續，減少部分震盪。',rmsprop:'<strong>RMSProp｜調整步伐尺度</strong><br>參考近期梯度平方的移動平均，依不同參數的梯度尺度調整有效步伐。',adam:'<strong>Adam｜結合兩種想法</strong><br>結合梯度的一階動量與二階尺度估計，並通常搭配偏差修正；常用但不保證在所有任務都最好。'};
+$$('.optimizer').forEach(b=>b.addEventListener('click',()=>{$$('.optimizer').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#optimizerInfo').innerHTML=optInfo[b.dataset.opt];}));
+const curveInfo={both:'同時比較：正數區兩者相同；差別主要在負數區。',relu:'ReLU：輸入為負數時輸出固定為 0；正數時輸出等於輸入。',leaky:'Leaky ReLU：負數區仍保留小斜率（此圖採 0.1），正數區輸出等於輸入。'};
+$$('.curveMode').forEach(b=>b.addEventListener('click',()=>{const mode=b.dataset.mode;$$('.curveMode').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#reluCurve').style.display=mode==='leaky'?'none':'block';$('#leakyCurve').style.display=mode==='relu'?'none':'block';$('#legendRelu').style.opacity=mode==='leaky'?'.35':'1';$('#legendLeaky').style.opacity=mode==='relu'?'.35':'1';$('#curveStatus').textContent=curveInfo[mode];}));
+})();
+</script>
+</body></html>
